@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+
+    <style>
+    label {
+      font-weight: bold;
+    }
+    
+    .branding-below {
+       bottom: 54px;
+       top: 0;
+    }
+
+    .branding-text {
+       left: 7px;
+       position: relative;
+       top: 3px;
+    }
+
+    .logo {
+       vertical-align: middle;
+    }
+
+
+    .centerclass {
+      text-align: center;
+      font-size: 15px;
+    } 
+    
+    .flex-ZeroDivision {
+      justify-content:  center;
+      justify-items: center;
+      align-items: stretch;
+      height: auto;
+      width: 100%;
+      display: flex;
+      background-color: DodgerBlue;
+    }
+    .flex-ZeroDivision > div {
+       background-color: #f1f1f1;
+       margin: 10px;
+       padding: 20px;
+       border-color: #fff;
+       border-width: 2px;
+       border-style: solid;
+       text-align: center;
+       width: 50%;
+       position: relative;
+    }
+    
+    #Bar-1,
+    #Bar-2,
+    #Bar-3 {
+      background-color: #eee;
+      border-color: #fff;
+      border-width: 2px;
+      border-style: solid;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      font-weight: bold;
+      overflow: auto;
+    }
+    
+    #sidebar-status {
+      width: 100%;
+      font-weight: bold;
+      color: blue;
+      font-size: 3em;
+      text-align: center;
+      line-height: 150%;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .blinking{
+       animation:blinkingText 1.2s infinite;
+    }
+    @keyframes blinkingText{
+       0%{     color: #FF0000; }
+       49%{    color: #FF0000; }
+       85%{    color: transparent; }
+       99%{    color: transparent; }
+       100%{   color: #FF0000; }
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="sidebar branding-below">
+    <div class="flex-ZeroDivision" id="ZeroDivision">
+  
+      <div id="First-Division-Left">
+    <form action='/p' method='POST'>
+      <div class="centerclass"><label>SUBJECT</label></div>
+      
+        <div id="Bar-1"> 
+          <label for="subj">Paste the Subject of the Mail :</label><br>
+          <input type="text" id="subj" name="subj" size="70" autofocus>
+	</div>
+      
+      <div class="centerclass"><label>BODY OF MAIL</label></div>
+      
+        <div id="Bar-2"> 
+          <label for="body">Paste the Body of the Mail :</label><br>
+          <textarea name="body" rows="10" cols="80"></textarea>
+	</div>
+
+      <div class="centerclass"><label>PREDICTION</label></div>
+      
+
+        <div class="block form-group" id="Bar-3">
+            <p> Click to Predict the E-Mail Category.</p>
+            <button id="Execute-Button">PREDICT</button>
+        </div>
+      
+     </form>     
+      </div>
+
+      <div id="First-Division-Right">
+	 
+            <b> <div class="blinking" id="sidebar-status">{{pred}}</div> </b>
+	 
+      </div>
+
+     </div>
+    </div>
+
+    <div class="sidebar bottom"  style="display:flex;">
+      <a href="https://www.linkedin.com/in/e-santhosh-kumar/" target="_blank">
+      <img alt="Add-on logo" class="logo" width="40"
+          src="https://drive.google.com/thumbnail?id=1Xa1bANnq50zVxrcopyKh2AZqVXZZCNrH"></a><br>
+      <a href="https://www.linkedin.com/in/e-santhosh-kumar/" target="_blank">
+      <span class="gray branding-text">Designed & Developed by<br>SANTHOSH KUMAR</span>
+      </a>
+    </div>
+
+
+  </body>
+</html>
