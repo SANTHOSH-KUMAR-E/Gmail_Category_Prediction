@@ -50,8 +50,8 @@ function PerformanceDashboard() {
 
   //  Store the mail data in Dashboard Google Sheet.   
     var Last_Row = Sheet.getLastRow();
-    Sheet.getRange(Last_Row+1, 1, Temp_length, 4).setValues(Messages_jso[Categories[cat_iter]]);
-    Sheet.getRange(Last_Row+1, 5, Temp_length, 1).setValue(Categories[cat_iter]);
+    Sheet.getRange(Last_Row+1, 1, Temp_length, 5).setValues(Messages_jso[Categories[cat_iter]]);
+    Sheet.getRange(Last_Row+1, 6, Temp_length, 1).setValue(Categories[cat_iter]);
   }
 }
 
@@ -75,7 +75,7 @@ function ProcessMessages(Message) {
      //  Call the function CallPrediction to request the web app.       
         var Msg_Prediction = CallPrediction(Msg_Subject, Msg_Body);
         
-        return [ Msg_Date, Msg_Content, Msg_Word_Count, Msg_Prediction];
+        return [ Msg_Date, Msg_Content, Msg_Word_Count, Msg_Prediction[1], Msg_Prediction[0]];
       }
     } 
   }
@@ -116,6 +116,8 @@ function CallPrediction(Subject, Body) {
 // Separating the required portions of HTML from the prediction result.
   Resp = Resp.split('<div class="blinking" id="sidebar-status">')[1];
   Resp = Resp.split('</div>')[0];
+  Resp = Resp.split("<br>");
+  Resp[1] = Number(Resp[1].split("Sentiment Score : ")[1].replaceAll(/\s/g, ""));
   
   return Resp;
 }
